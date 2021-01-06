@@ -45,7 +45,7 @@ EOF
 #   All other flags are optional via the `args:` directive.
 sh -c "cp .env.prod .env" \
 && sh -c "ls" \
-&& sh -c "cd app-web" \
+&& sh -c "cd /app-web" \
 && sh -c "ls" \
 && sh -c "yarn build" \
 && sh -c "cd .." \
