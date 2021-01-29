@@ -48,7 +48,6 @@ sh -c "cp .env.${ENVTYPE} app-web/.env" \
 && sh -c "aws s3 sync ${SOURCE_DIR:-public} s3://${AWS_S3_BUCKET}/${DEST_DIR} \
               --profile react-deploy-to-s3-action \
               --no-progress \
-              --recursive \
               --metadata-directive REPLACE \
               --expires ${TIME} \
               --acl public-read \
