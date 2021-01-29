@@ -51,7 +51,7 @@ sh -c "cp .env.${ENVTYPE} app-web/.env" \
               --metadata-directive REPLACE \
               --expires ${TIME} \
               --acl public-read \
-              --cache-control max-age=86400,public \
+              --cache-control ${CACHEAGE} \
               ${ENDPOINT_APPEND} $*"
 SUCCESS=$?
 
