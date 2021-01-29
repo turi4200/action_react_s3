@@ -27,8 +27,6 @@ if [ -n "$AWS_S3_ENDPOINT" ]; then
   ENDPOINT_APPEND="--endpoint-url $AWS_S3_ENDPOINT"
 fi
 
-EXPIREDATE= date+"%F"T23:59:59Z
-
 # Override default NODE_ENV (production) if set by user.
 NODE_ENV_PREPEND="NODE_ENV=${NODE_ENV:-production}"
 
@@ -52,7 +50,7 @@ sh -c "cp .env.${ENVTYPE} app-web/.env" \
               --no-progress \
               --recursive \
               --metadata-directive REPLACE \
-              --expires ${EXPIREDATE} \
+              --expires ${TIME} \
               --acl public-read \
               --cache-control max-age=86400,public \
               ${ENDPOINT_APPEND} $*"
