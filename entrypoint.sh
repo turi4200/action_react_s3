@@ -44,7 +44,7 @@ EOF
 # - Sync using our dedicated profile and suppress verbose messages.
 #   All other flags are optional via the `args:` directive.
 sh -c "cp .env.${ENVTYPE} app-web/.env" \
-&& sh -c "cd app-web && yarn build" \
+&& sh -c "cd ${MAIN_PATH} && yarn build" \
 && sh -c "aws s3 sync ${SOURCE_DIR:-public} s3://${AWS_S3_BUCKET}/${DEST_DIR} \
               --profile react-deploy-to-s3-action \
               --no-progress \
