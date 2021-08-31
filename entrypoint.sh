@@ -46,6 +46,10 @@ EOF
 sh -c "cp .env.${ENVTYPE} .env" \
 && sh -c "yarn" \
 && sh -c "yarn build" \
+&& sh -c "aws s3 rm s3://${AWS_S3_BUCKET} --recursive" \
+&& sh -c "aws cloudfront create-invalidation \
+                          --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} \
+                          --paths /\*"
 && sh -c "aws s3 sync ${SOURCE_DIR:-public} s3://${AWS_S3_BUCKET}/${DEST_DIR} \
               --profile react-deploy-to-s3-action \
               --no-progress \
