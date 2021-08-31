@@ -53,7 +53,7 @@ sh -c "cp .env.${ENVTYPE} app-web/.env" \
               --profile react-deploy-to-s3-action \
               --no-progress \
               --metadata-directive REPLACE \
-              --expires ${TIME} \
+              --expires ${CACHETIME} \
               --acl public-read \
               --cache-control ${CACHEAGE} \
               ${ENDPOINT_APPEND} $*"
