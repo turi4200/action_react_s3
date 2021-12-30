@@ -44,7 +44,7 @@ EOF
 # - Sync using our dedicated profile and suppress verbose messages.
 #   All other flags are optional via the `args:` directive.
 sh -c "cp .env.${ENVTYPE} web/.env" \
-&& sh -c "cd web && yarn" \
+&& sh -c "cd web && yarn --ignore-engines" \
 && sh -c "cd web && yarn build" \
 && sh -c "aws s3 rm s3://${AWS_S3_BUCKET} --recursive" \
 && sh -c "aws cloudfront create-invalidation \
