@@ -43,7 +43,8 @@ EOF
 # - Build react bundle
 # - Sync using our dedicated profile and suppress verbose messages.
 #   All other flags are optional via the `args:` directive.
-sh -c "yarn" \
+sh -c "cp .env.${ENVTYPE} .env" \
+&& sh -c "yarn" \
 && sh -c "yarn build" \
 && sh -c "aws s3 rm s3://${AWS_S3_BUCKET} --recursive" \
 && sh -c "aws cloudfront create-invalidation \
