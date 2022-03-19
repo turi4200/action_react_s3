@@ -44,12 +44,8 @@ EOF
 # - Sync using our dedicated profile and suppress verbose messages.
 #   All other flags are optional via the `args:` directive.
 
-sh -c "apt-get update" \
-&& sh -c "apt-get install curl" \
-&& sh -c "curl -sL https://deb.nodesource.com/setup_4.x | bash" \
-&& sh -c "apt-get install nodejs" \
+sh -c "npx -v" \
 && sh -c "node -v" \
-
 && sh -c "yarn set version latest" \
 && sh -c "cp .env.${ENVTYPE} web/.env" \
 && sh -c "cd web && yarn && yarn build" \
