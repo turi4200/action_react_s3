@@ -44,11 +44,9 @@ EOF
 # - Sync using our dedicated profile and suppress verbose messages.
 #   All other flags are optional via the `args:` directive.
 
-sh -c "npx -v" \
-&& sh -c "node -v" \
-&& sh -c "nvm -v" \
-&& sh -c "node -v" \
-&& sh -c "nvm use 16.13.1" \
+
+sh -c "npm cache clean -f" \
+&& sh -c "npm install -g n" \
 && sh -c "node -v" \
 && sh -c "yarn set version latest" \
 && sh -c "cp .env.${ENVTYPE} web/.env" \
