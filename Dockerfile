@@ -13,6 +13,5 @@ LABEL maintainer="Jean Lescure <opensource@jeanlescure.io>"
 ENV PATH /github/workspace/node_modules/.bin:$PATH
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-RUN curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 ENTRYPOINT ["/entrypoint.sh"]
