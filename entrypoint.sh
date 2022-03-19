@@ -46,6 +46,10 @@ EOF
 
 sh -c "npx -v" \
 && sh -c "node -v" \
+&& sh -c "nvm -v" \
+&& sh -c "node -v" \
+&& sh -c "nvm use 16.13.1" \
+&& sh -c "node -v" \
 && sh -c "yarn set version latest" \
 && sh -c "cp .env.${ENVTYPE} web/.env" \
 && sh -c "cd web && yarn && yarn build" \
