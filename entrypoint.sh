@@ -45,8 +45,7 @@ EOF
 #   All other flags are optional via the `args:` directive.
 
 
-sh -c "nvm -v" \
-&& sh -c "yarn set version latest" \
+sh -c "yarn set version latest" \
 && sh -c "cp .env.${ENVTYPE} web/.env" \
 && sh -c "cd web && yarn && yarn build" \
 && sh -c "aws s3 rm s3://${AWS_S3_BUCKET} --recursive" \
