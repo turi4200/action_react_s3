@@ -12,8 +12,6 @@ LABEL maintainer="Jean Lescure <opensource@jeanlescure.io>"
 
 ENV PATH /github/workspace/node_modules/.bin:$PATH
 ADD entrypoint.sh /entrypoint.sh
-
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 RUN chmod +x /entrypoint.sh
 
 
