@@ -43,7 +43,14 @@ EOF
 # - Build react bundle
 # - Sync using our dedicated profile and suppress verbose messages.
 #   All other flags are optional via the `args:` directive.
-sh -c "yarn set version latest" \
+
+sh -c "apt-get update" \
+&& sh -c "apt-get install curl" \
+&& sh -c "curl -sL https://deb.nodesource.com/setup_4.x | bash" \
+&& sh -c "apt-get install nodejs" \
+&& sh -c "node -v" \
+
+&& sh -c "yarn set version latest" \
 && sh -c "cp .env.${ENVTYPE} web/.env" \
 && sh -c "cd web && yarn && yarn build" \
 && sh -c "aws s3 rm s3://${AWS_S3_BUCKET} --recursive" \
