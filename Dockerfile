@@ -1,4 +1,4 @@
-FROM jeanlescure/node-awscli:latest
+FROM doctrine/nodejs-aws-cli:latest
 
 LABEL "com.github.actions.name"="React Deploy to S3"
 LABEL "com.github.actions.description"="Build a React.js web app and sync to an AWS S3 repository"
